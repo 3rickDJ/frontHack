@@ -11,10 +11,11 @@ const apiBack = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BACK
 })
 
+const PATH = 'api/locations'
 const fetchUser = async () => {
   const response = await apiBack({
     method: 'GET',
-    url: '/locations'
+    url: `${PATH}`
   })
   return response.data
 }
