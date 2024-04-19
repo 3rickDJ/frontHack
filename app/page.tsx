@@ -12,6 +12,7 @@ export default function Home() {
       }}>
       <Box>
         <MainMenu />
+        HOLA {process.env.BACK}
       </Box>
 
     </Container>
