@@ -3,20 +3,21 @@
 import { Box, styled, Chip} from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { Colors } from '../theme/colors'
+import axios from 'axios'
 
 
 
-// const apiBack = axios.create({
-//   baseURL: process.env.BACK_API
-// })
+const apiBack = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_BACK
+})
 
-// const fetchUser = async () => {
-//   const response = await apiBack({
-//     method: 'GET',
-//     url: '/locations'
-//   })
-//   return response.data
-// }
+const fetchUser = async () => {
+  const response = await apiBack({
+    method: 'GET',
+    url: '/locations'
+  })
+  return response.data
+}
 
 const MainMenuFrame = styled(Box, {
     name: 'MainMenuFrameComponent',
@@ -37,16 +38,13 @@ const MainMenuFrame = styled(Box, {
 
 function MainMenu() {
   const [locations, setLocations] =  useState([])
-  console.log('enviromentvar', process.env.BACK_API)
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const response = await fetchUser()
-  //     setLocations(response.data)
-  //   }
-  //   fetchData()
-  // }, [])
-  console.log(process.env)
-
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetchUser()
+      setLocations(response.data)
+    }
+    fetchData()
+  }, [])
   const getLabel = (location: { id: string, attributes: { latitud: string, longitud: string } }) => {
     return `${location.attributes.latitud} - ${location.attributes.longitud}`
   }
