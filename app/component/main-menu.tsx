@@ -1,9 +1,10 @@
 'use client'
 
-import { Box, Typography, styled } from '@mui/material'
+import { Box, Typography, styled, Button } from '@mui/material'
 import React, { useState } from 'react'
 import MenuButton from './game-button'
 import { Colors } from '../theme/colors'
+import { count } from 'console'
 
 const MainMenuFrame = styled(Box, {
     name: 'MainMenuFrameComponent',
@@ -24,9 +25,17 @@ const MainMenuFrame = styled(Box, {
 
 function MainMenu() {
   const [selection, setSelection] = useState<string | undefined>()
+  const [counter, setCounter] = useState(0)
 
   const handleButtonClick = (param: string) => {
     setSelection(param)
+  }
+
+  const handleIncrementCount = () => {
+    setCounter(counter + 1)
+  }
+  const handleDecrementCount = async () => {
+    setCounter((prev) => prev - 1)
   }
   return (
     <Box sx={{
@@ -34,6 +43,9 @@ function MainMenu() {
       flexDirection: 'column',
       alignItems: 'center'
     }}>
+      <Box>{counter}</Box>
+      <Button onClick={handleIncrementCount}>+</Button>
+      <Button onClick={handleDecrementCount}>-</Button>
       <Typography variant='h3' textTransform='uppercase'>{selection}</Typography>
         <MainMenuFrame>
             <MenuButton title='new game' onButtonClick={handleButtonClick} />
