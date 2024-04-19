@@ -11,10 +11,11 @@ const apiBack = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BACK
 })
 
+const PATH = 'api/locations'
 const fetchUser = async () => {
   const response = await apiBack({
     method: 'GET',
-    url: '/locations'
+    url: `${PATH}`
   })
   return response.data
 }
@@ -51,7 +52,7 @@ function MainMenu() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      ADIOS
+      COMPUSALCHICHAS - LOCATIONS
       {locations?.map((location: { id: string, attributes: { latitud: string, longitud: string } }) => (
         <Chip key={location.id} label={getLabel(location)}/>
       ))}
