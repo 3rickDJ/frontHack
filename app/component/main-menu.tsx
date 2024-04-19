@@ -27,19 +27,14 @@ function MainMenu() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await getLocations()
-      console.log(response)
       setLocations(response.data.data)
     }
     fetchData()
   }, [])
+
   const getLabel = (location: { id: string, attributes: { latitud: string, longitud: string } }) => {
     return `${location.attributes.latitud} - ${location.attributes.longitud}`
   }
-  getLocations()
-
-  const apiUrl = process.env.NEXT_PUBLIC_BACK;
-
-  console.log(apiUrl); // Outputs: 'https://api.example.com'
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
