@@ -1,22 +1,35 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
+import { Box, Grid, ThemeProvider } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 export default function Seleccionar() {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100vh',
-        backgroundColor: '#f5f5f5',
+    <ThemeProvider
+      theme={{
+        palette: {
+          primary: {
+            main: '#FF5733', // Azul profundo
+            dark: '#303f9f', // Azul más oscuro
+          },
+          secondary: {
+            main: '#f50057', // Rosa
+          },
+        },
       }}
     >
-      <Typography variant="h4" component="div" gutterBottom>
-        Por favor, selecciona una opción
-      </Typography>
-    </Box>
+      <Box
+        sx={{
+          bgcolor: 'primary.main',
+          borderRadius: 3,
+          color: 'white',
+          padding: 4, // Aumenta el espacio dentro de la caja
+          textAlign: 'center', // Centra el texto dentro de la caja
+        }}
+      >
+        <Typography variant="h4" gutterBottom>
+          Selecciona tu espacio de aparcamiento
+        </Typography>
+      </Box>
+    </ThemeProvider>
   );
 }
