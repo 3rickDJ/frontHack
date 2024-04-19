@@ -1,8 +1,21 @@
 'use client'
 
-import { Box, Typography, styled, Button } from '@mui/material'
-import React, { useState } from 'react'
+import { Box, styled, Chip} from '@mui/material'
+import React, { useEffect, useState } from 'react'
 import { Colors } from '../theme/colors'
+import axios from 'axios'
+
+const api = axios.create({
+  baseURL: 'https://my-strapi-project2-i37b2ut65q-uc.a.run.app/api/'
+})
+
+const fetchUser = async () => {
+  const response = await api({
+    method: 'GET',
+    url: '/locations'
+  })
+  return response.data
+}
 
 const MainMenuFrame = styled(Box, {
     name: 'MainMenuFrameComponent',
@@ -22,22 +35,26 @@ const MainMenuFrame = styled(Box, {
 }))
 
 function MainMenu() {
-  const [selection, setSelection] = useState<string | undefined>()
-  const [counter, setCounter] = useState(0)
+  const [locations, setLocations] =  useState([])
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetchUser()
+      setLocations(response.data)
+    }
+    fetchData()
+  }, [])
+  console.log(locations)
 
-  const handleButtonClick = (param: string) => {
-    setSelection(param)
+  const getLabel = (location: { id: string, attributes: { latitud: string, longitud: string } }) => {
+    return `${location.attributes.latitud} - ${location.attributes.longitud}`
   }
 
-  const handleIncrementCount = () => {
-    setCounter(counter + 1)
-  }
-  const handleDecrementCount = async () => {
-    setCounter((prev) => prev - 1)
-  }
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       Hola
+      {locations?.map((location: { id: string, attributes: { latitud: string, longitud: string } }) => (
+        <Chip key={location.id} label={getLabel(location)}/>
+      ))}
     </Box>
   )
 }
