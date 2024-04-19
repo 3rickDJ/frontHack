@@ -2,9 +2,7 @@
 
 import { Box, Typography, styled, Button } from '@mui/material'
 import React, { useState } from 'react'
-import MenuButton from './game-button'
 import { Colors } from '../theme/colors'
-import { count } from 'console'
 
 const MainMenuFrame = styled(Box, {
     name: 'MainMenuFrameComponent',
@@ -38,21 +36,8 @@ function MainMenu() {
     setCounter((prev) => prev - 1)
   }
   return (
-    <Box sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center'
-    }}>
-      <Box>{counter}</Box>
-      <Button onClick={handleIncrementCount}>+</Button>
-      <Button onClick={handleDecrementCount}>-</Button>
-      <Typography variant='h3' textTransform='uppercase'>{selection}</Typography>
-        <MainMenuFrame>
-            <MenuButton title='new game' onButtonClick={handleButtonClick} />
-            <MenuButton title='continue' onButtonClick={handleButtonClick} />
-            <MenuButton title='options' onButtonClick={handleButtonClick} />
-            <MenuButton title='quit' onButtonClick={handleButtonClick} />
-        </MainMenuFrame>
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      Hola
     </Box>
   )
 }
