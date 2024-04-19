@@ -52,7 +52,7 @@ function MainMenu() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      COMPUSALCHICHAS
+      COMPUSALCHICHAS - LOCATIONS
       {locations?.map((location: { id: string, attributes: { latitud: string, longitud: string } }) => (
         <Chip key={location.id} label={getLabel(location)}/>
       ))}
