@@ -1,5 +1,4 @@
-import { Box, Container, Typography } from '@mui/material'
-import Image from 'next/image'
+import { Box, Container } from '@mui/material'
 import MainMenu from './component/main-menu'
 
 export default function Home() {
