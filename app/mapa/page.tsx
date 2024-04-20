@@ -2,7 +2,6 @@
 import React from 'react';
 import Mapa from './mapa';
 import { Box, Typography, Button} from '@mui/material';
-import shadows from '@mui/material/styles/shadows';
 
 
 export default function Page() {
