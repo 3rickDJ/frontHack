@@ -1,5 +1,6 @@
 import { Box, Container } from '@mui/material'
 import MainMenu from './component/main-menu'
+import React from 'react'
 
 export default function Home() {
   return (
@@ -13,8 +14,6 @@ export default function Home() {
       <Box>
         <MainMenu />
       </Box>
-
     </Container>
-
       )
 }
