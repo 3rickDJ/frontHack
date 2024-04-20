@@ -7,6 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { AppBar, Toolbar } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Mapa from './Mapa';
 
 export default function MyAppBar() {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -20,26 +21,27 @@ export default function MyAppBar() {
     };
 
     return (
-        <AppBar position="fixed" style={{ width: '100vw', backgroundColor: '#FF5A00' }}>
-            <Toolbar>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    KI-2-ALL
-                </Typography>
-                <Button color="inherit" onClick={handleClick}>
-                    Juan Manuel
-                </Button>
-                <Menu
-                    id="simple-menu"
-                    anchorEl={anchorEl}
-                    keepMounted
-                    open={Boolean(anchorEl)}
-                    onClose={handleClose}
-                >
-                    <MenuItem onClick={handleClose}>Perfil</MenuItem>
-                    <MenuItem onClick={handleClose}>Cuenta</MenuItem>
-                    <MenuItem onClick={handleClose}>Cerrar Sesion</MenuItem>
-                </Menu>
-            </Toolbar>
-        </AppBar>
+        <div>
+            <AppBar position="fixed" style={{ width: '100vw', backgroundColor: '#FF5A00' }}>
+                <Toolbar>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        KI-2-ALL
+                    </Typography>
+                    <Button color="inherit" onClick={handleClick}>
+                        Juan Manuel
+                    </Button>
+                    <Menu
+                        id="simple-menu"
+                        anchorEl={anchorEl}
+                        keepMounted
+                        open={Boolean(anchorEl)}
+                        onClose={handleClose}
+                    >
+                        <MenuItem onClick={handleClose}>Perfil</MenuItem>
+                    </Menu>
+                </Toolbar>
+            </AppBar>
+            <Mapa />
+        </div>
     );
 }
