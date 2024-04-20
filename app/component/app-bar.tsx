@@ -6,13 +6,10 @@ import { AppBar, Toolbar } from '@mui/material';
 
 export default function MyAppBar() {
     return (
-        <AppBar position="fixed" style={{ width: '100vw' }}>
+        <AppBar position="fixed" style={{ width: '100vw', backgroundColor: '#FF5A00' }}>
             <Toolbar>
-                <IconButton edge="start" color="inherit" aria-label="menu">
-                    <MenuIcon />
-                </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    KI2ALL
+                    KIGO-2-ALL
                 </Typography>
                 <Button color="inherit">Login</Button>
             </Toolbar>
