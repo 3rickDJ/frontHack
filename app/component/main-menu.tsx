@@ -54,16 +54,15 @@ function MainMenu() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      COMPUSALCHICHAS - LOCATIONS
-      {locations?.map((location: { id: string, attributes: { latitud: string, longitud: string } }) => (
-        <Chip key={location.id} label={getLabel(location)}/>
-      ))}
-      <Mapa />
-      
+      <Mapa/>
     </Box>
-
-
   )
 }
 
 export default MainMenu
+
+/*
+      {locations?.map((location: { id: string, attributes: { latitud: string, longitud: string } }) => (
+        <Chip key={location.id} label={getLabel(location)}/>
+      ))}
+*/ 
