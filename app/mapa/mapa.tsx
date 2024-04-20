@@ -11,7 +11,10 @@ import {
   Map,
   Marker,
   Pin,
-  useMarkerRef
+  useMarkerRef,
+  useMap,
+  useMapsLibrary
+
 } from '@vis.gl/react-google-maps';
 
 import ControlPanel from './control-panel';
@@ -67,12 +70,19 @@ export default function Mapa() {
         {locations?.map((location: any) => (
           <MarkerWithInfowindow key={location.id} position={location.position} title={location.id} state={location.state} description={location.description} {...location} />
         ))}
+        <AdvancedMarker position={{lat: 19.05140108223467, lng: -98.21198794569344}} >
+          <Pin scale={1} background={'#ff4500'} glyph={'🔵'} borderColor={'#ff0000'} />
+        </AdvancedMarker>
 
+        {/* <AdvancedMarker position={{lat: 19.05140108223467, lng: -98.21198794569344}} >
+          🔵
+        </AdvancedMarker> */}
 
 
 
         {/* continously updated marker */}
         {/* <MovingMarker /> */}
+        <Directions />
 
 
       </Map>
@@ -80,3 +90,45 @@ export default function Mapa() {
   );
 };
 
+function Directions(){
+  const map = useMap();
+  const routesLIbrary = useMapsLibrary("routes");
+  const [directionsService, setDirectionsService] = 
+    useState<google.maps.DirectionsService>();
+  const [directionsRenderer, setDirectionsRenderer] = 
+    useState<google.maps.DirectionsRenderer>();
+  const [routes,setRoutes] = useState<google.maps.DirectionsRoute[]>([]);
+  const [routeIndex, setRouteIndex] = useState(0);
+  const selected = routes[routeIndex];
+  const leg = selected?.legs[0];
+
+  useEffect(() => {
+    if(!routesLIbrary|| !map)  return;
+    setDirectionsService(new routesLIbrary.DirectionsService());
+    setDirectionsRenderer(new routesLIbrary.DirectionsRenderer({map}));
+  },[routesLIbrary, map]);
+
+  useEffect(() => {
+    if(!directionsService || !directionsRenderer) return;
+
+    directionsService
+    .route({
+
+      origin: { lat: 19.05202030845445, lng: -98.20947953677938 },
+      destination: {lat: 19.05140108223467, lng: -98.21198794569344},
+      travelMode: google.maps.TravelMode.DRIVING,
+      provideRouteAlternatives: true,
+    }).then (response => {
+      directionsRenderer.setDirections(response);
+      setRoutes(response.routes)
+    });
+  }, [directionsService , directionsRenderer]);
+
+  if(!leg)return null;
+
+  return(
+  <div className="direction">
+    <h2>{selected.summary}</h2>
+  </div>
+  );
+}
