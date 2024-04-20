@@ -1,13 +1,21 @@
 'use client'
-import React from 'react';
-import Mapa from './mapa';
-import {Box, Grid} from '@mui/material';
-
+import { Box, Grid } from '@mui/material'
+import React from 'react'
+import Mapa from '../component/Mapa'
 
 export default function Page() {
   return (
-    <Box sx={{width: '75%', height: '75%'}}>
+    <Grid
+      container
+      spacing={0}
+      direction="column"
+      alignItems="center"
+      justifyContent="center"
+      sx={{ minHeight: '100vh' }}
+    >
+    <Grid item xs={3}>
       <Mapa />
-    </Box>
-  );
+    </Grid>
+  </Grid>
+  )
 }
