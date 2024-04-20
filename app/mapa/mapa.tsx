@@ -31,33 +31,33 @@ export default function Mapa() {
         defaultCenter={{lat: 12, lng: 0}}
         gestureHandling={'greedy'}
         disableDefaultUI>
-        {/* simple marker */}
+
         <Marker
-          position={{lat: 10, lng: 10}}
+          position={{ lat: 10, lng: 10 }}
           clickable={true}
           onClick={() => alert('marker was clicked!')}
           title={'clickable google.maps.Marker'}
         />
 
         {/* advanced marker with customized pin */}
-        <AdvancedMarker
+        {/* <AdvancedMarker
           position={{lat: 20, lng: 10}}
           title={'AdvancedMarker with customized pin.'}>
           <Pin
             background={'#22ccff'}
             borderColor={'#1e89a1'}
             glyphColor={'#0f677a'}></Pin>
-        </AdvancedMarker>
+        </AdvancedMarker> */}
 
         {/* advanced marker with html pin glyph */}
-        <AdvancedMarker
+        {/* <AdvancedMarker
           position={{lat: 15, lng: 20}}
           title={'AdvancedMarker with customized pin.'}>
           <Pin background={'#22ccff'} borderColor={'#1e89a1'} scale={1.4}>
-            {/* children are rendered as 'glyph' of pin */}
+            children are rendered as 'glyph' of pin
             👀
           </Pin>
-        </AdvancedMarker>
+        </AdvancedMarker> */}
 
         {/* advanced marker with html-content */}
         <AdvancedMarker
@@ -77,18 +77,6 @@ export default function Mapa() {
             }}></div>
         </AdvancedMarker>
 
-        {/* simple positioned infowindow */}
-        <AdvancedMarker position={{lat: 40, lng: 10}}>
-          <InfoWindow>
-            <p>This is the content for an infowindow.</p>
-          </InfoWindow>
-        </AdvancedMarker>
-        <InfoWindow position={{lat: 40, lng: 0}} maxWidth={200}>
-          <p>
-            This is the content for another infowindow with <em>HTML</em>
-            -elements.
-          </p>
-        </InfoWindow>
 
         {/* continously updated marker */}
         <MovingMarker />
@@ -96,10 +84,10 @@ export default function Mapa() {
         {/* simple stateful infowindow */}
         <Marker ref={markerRef} position={{lat: 53.54992, lng: 10.00678}} />
 
-        <InfoWindow anchor={marker}>
+        {/* <InfoWindow anchor={marker}>
           <h2>Hello everyone!</h2>
           <p>This is an Info Window</p>
-        </InfoWindow>
+        </InfoWindow> */}
       </Map>
 
       <ControlPanel />
