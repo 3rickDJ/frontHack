@@ -1,21 +1,100 @@
 'use client'
-import { Box, Grid } from '@mui/material'
-import React from 'react'
-import Mapa from '../component/Mapa'
+import React from 'react';
 
-export default function Page() {
+import {
+  AdvancedMarker,
+  APIProvider,
+  InfoWindow,
+  Map,
+  Marker,
+  Pin
+} from '@vis.gl/react-google-maps';
+
+import ControlPanel from './control-panel';
+import {MovingMarker} from './moving-marker';
+import {MarkerWithInfowindow} from './marker-with-infowindow';
+
+const API_KEY = "AIzaSyBPnoa5_JlzafSUt54wdKxTgmb86m323JQ"
+
+
+
+export default function Mapa() {
   return (
-    <Grid
-      container
-      spacing={0}
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
-      sx={{ minHeight: '100vh' }}
-    >
-    <Grid item xs={3}>
-      <Mapa />
-    </Grid>
-  </Grid>
-  )
-}
+    <APIProvider apiKey={API_KEY} libraries={['marker']}>
+      <Map
+        mapId={'bf51a910020fa25a'}
+        defaultZoom={3}
+        defaultCenter={{lat: 12, lng: 0}}
+        gestureHandling={'greedy'}
+        disableDefaultUI>
+        {/* simple marker */}
+        <Marker
+          position={{lat: 10, lng: 10}}
+          clickable={true}
+          onClick={() => alert('marker was clicked!')}
+          title={'clickable google.maps.Marker'}
+        />
+
+        {/* advanced marker with customized pin */}
+        <AdvancedMarker
+          position={{lat: 20, lng: 10}}
+          title={'AdvancedMarker with customized pin.'}>
+          <Pin
+            background={'#22ccff'}
+            borderColor={'#1e89a1'}
+            glyphColor={'#0f677a'}></Pin>
+        </AdvancedMarker>
+
+        {/* advanced marker with html pin glyph */}
+        <AdvancedMarker
+          position={{lat: 15, lng: 20}}
+          title={'AdvancedMarker with customized pin.'}>
+          <Pin background={'#22ccff'} borderColor={'#1e89a1'} scale={1.4}>
+            {/* children are rendered as 'glyph' of pin */}
+            👀
+          </Pin>
+        </AdvancedMarker>
+
+        {/* advanced marker with html-content */}
+        <AdvancedMarker
+          position={{lat: 30, lng: 10}}
+          title={'AdvancedMarker with custom html content.'}>
+          <div
+            style={{
+              width: 16,
+              height: 16,
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              background: '#1dbe80',
+              border: '2px solid #0e6443',
+              borderRadius: '50%',
+              transform: 'translate(-50%, -50%)'
+            }}></div>
+        </AdvancedMarker>
+
+        {/* simple positioned infowindow */}
+        <AdvancedMarker position={{lat: 40, lng: 10}}>
+          <InfoWindow>
+            <p>This is the content for an infowindow.</p>
+          </InfoWindow>
+        </AdvancedMarker>
+        <InfoWindow position={{lat: 40, lng: 0}} maxWidth={200}>
+          <p>
+            This is the content for another infowindow with <em>HTML</em>
+            -elements.
+          </p>
+        </InfoWindow>
+
+        {/* continously updated marker */}
+        <MovingMarker />
+
+        {/* simple stateful infowindow */}
+        <MarkerWithInfowindow />
+      </Map>
+
+      <ControlPanel />
+    </APIProvider>
+  );
+};
+
