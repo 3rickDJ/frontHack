@@ -39,21 +39,27 @@ export default function Mostrar() {
           >
             <Typography variant="h4" gutterBottom color={'black'}>
               Mapa de aparcamiento
-              
             </Typography>
-
-            
           </Box>
-          
-          <Button variant="outlined" color="error">
-  Regresar
-</Button>
-<Button variant="contained" color="success">
-  Continuar
-</Button>
+          <Box
+            sx={{
+              position: 'absolute',
+              top: '750px', // Ajusta la posición vertical de los botones
+              left: '50%', // Centra horizontalmente
+              transform: 'translateX(-50%)', // Centra horizontalmente
+              width: '80%', // Ancho del 80% del contenedor padre
+              textAlign: 'center',
+              marginBottom: '40px', // Aumenta el margen inferior
+              marginTop: '20px', // Aumenta el margen superior
+            }}
+          >
+            <Button sx={{mr: 2, width: '200px', height: '50px'}} variant="outlined" color="error">
+              Regresar
+            </Button>
+            <Button sx={{width: '200px', height: '50px'}} variant="contained" color="success">
+              Continuar
+            </Button>
+          </Box>
         </>
-        
       );
-    }
-
-
+}
