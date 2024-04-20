@@ -41,7 +41,9 @@ export default function MyAppBar() {
                     </Menu>
                 </Toolbar>
             </AppBar>
-            <Mapa />
+            <div style={{ width: '100%' }}>
+                <Mapa />
+            </div>
         </div>
     );
 }
