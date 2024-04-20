@@ -4,7 +4,7 @@ const PATH = '/locations';
 
 const getLocations = () => {
   return apiBack({
-    url: PATH,
+    url: `${PATH}?populate=*`,
     method: 'GET'
   })
 }
