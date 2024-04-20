@@ -21,7 +21,7 @@ export default function MyAppBar() {
     };
 
     return (
-        <div>
+        <div >
             <AppBar position="fixed" style={{ width: '100vw', backgroundColor: '#FF5A00' }}>
                 <Toolbar>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -41,7 +41,7 @@ export default function MyAppBar() {
                     </Menu>
                 </Toolbar>
             </AppBar>
-            <div style={{ width: '100%' }}>
+            <div style={{ width: '100%' , maxWidth: '100%'}}>
                 <Mapa />
             </div>
         </div>
