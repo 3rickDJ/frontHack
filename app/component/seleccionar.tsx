@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Grid, ThemeProvider } from '@mui/material';
+import { Box, ThemeProvider } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 export default function Seleccionar() {
@@ -8,7 +8,7 @@ export default function Seleccionar() {
       theme={{
         palette: {
           primary: {
-            main: '#FF5733', // Azul profundo
+            main: '#FF5A00', // Naranja
             dark: '#303f9f', // Azul más oscuro
           },
           secondary: {
@@ -19,8 +19,11 @@ export default function Seleccionar() {
     >
       <Box
         sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
           bgcolor: 'primary.main',
-          borderRadius: 3,
           color: 'white',
           padding: 4, // Aumenta el espacio dentro de la caja
           textAlign: 'center', // Centra el texto dentro de la caja
