@@ -11,7 +11,6 @@ const api = axios.create({
   baseURL: 'https://my-strapi-project2-i37b2ut65q-uc.a.run.app/api/'
 })
 
-
 const fetchUser = async () => {
   const response = await api({
     method: 'GET',
@@ -29,7 +28,7 @@ const MainMenuFrame = styled(Box, {
     alignItems: 'center',
     justifyContent: 'center',
     padding: '6px 8px',
-    background: `radial-gradient(circle, rgba(0,0,0,0.2) 10%,
+    background: `radial-gradient(circle, rgba(0,0,0,12.2) ,
     rgba(0,0,0,1)), url("images/main-menu-bg.webp")`,
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",

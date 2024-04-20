@@ -9,10 +9,11 @@ export default function Home() {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      backgroundColor: '#fff'
       }}>
       <Box>
-        <MainMenu />
+        <MainMenu/>
       </Box>
     </Container>
       )
