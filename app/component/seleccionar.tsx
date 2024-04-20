@@ -14,6 +14,9 @@ export default function Seleccionar() {
           secondary: {
             main: '#f50057', // Rosa
           },
+          white: {
+            main: '#ECE9E6 ', // Color carne
+          },
         },
       }}
     >
@@ -31,6 +34,25 @@ export default function Seleccionar() {
       >
         <Typography variant="h4" gutterBottom>
           Selecciona tu espacio de aparcamiento
+        </Typography>
+      </Box>
+      <Box
+        sx={{
+          position: 'absolute',
+          top: '200px', // Distancia desde arriba
+          left: '50%', // Centra horizontalmente
+          transform: 'translateX(-50%)', // Centra horizontalmente
+          width: '80%', // Ancho del 80% del contenedor padre
+          height: '500px', // Altura de 500px
+          margin: '10px auto', // Margen superior e inferior de 20px, y auto para centrar horizontalmente
+          bgcolor: 'white.main',
+          padding: 4,
+          textAlign: 'center',
+          borderRadius: 2, // Bordes redondeados
+        }}
+      >
+        <Typography variant="h4" gutterBottom color={'black'}>
+          Mapa de aparcamiento
         </Typography>
       </Box>
     </ThemeProvider>
