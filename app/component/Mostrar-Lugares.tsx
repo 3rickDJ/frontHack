@@ -1,10 +1,11 @@
+'use client'
 import * as React from 'react';
-import { Box, ThemeProvider } from '@mui/material';
+import { Box, ThemeProvider, Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
-export default function Seleccionar() {
-  return (
-    <>
+export default function Mostrar() {
+    return (
+       <>
           <Box
             sx={{
               position: 'absolute',
@@ -44,7 +45,15 @@ export default function Seleccionar() {
             
           </Box>
           
-          
+          <Button variant="outlined" color="error">
+  Regresar
+</Button>
+<Button variant="contained" color="success">
+  Continuar
+</Button>
         </>
-  );
-}
+        
+      );
+    }
+
+

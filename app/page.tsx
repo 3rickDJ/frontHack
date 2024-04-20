@@ -1,6 +1,7 @@
 import { Box, Container } from '@mui/material'
 import MainMenu from './component/main-menu'
 import Seleccionar from './component/seleccionar'
+import Mostrar from './component/Mostrar-Lugares'
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
       justifyContent: 'center'
       }}>
       <Box>
-        <Seleccionar />
+        <Mostrar />
       </Box>
 
     </Container>
