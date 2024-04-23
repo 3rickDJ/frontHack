@@ -1,9 +1,8 @@
 'use client'
 import React from 'react';
-import Mapa from './mapa';
 import { Box, Typography, Button,
   AppBar, Toolbar, Menu, MenuItem
- } from '@mui/material';
+  } from '@mui/material';
 
 
 export default function Page() {
@@ -55,7 +54,6 @@ export default function Page() {
         position: 'relative',
         color: 'black',
       }}>
-        <Mapa />
       </Box>
     </Box>
     </>
